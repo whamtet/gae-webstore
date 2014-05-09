@@ -1,5 +1,5 @@
-webstore
-========
+gae-webstore
+============
 
 A simple webstore for Python Google App Engine (GAE) that uses Paypal.
 
@@ -12,8 +12,6 @@ Usage
 -----
 
 For local development and deployment install the [Google App Engine Launcher](https://developers.google.com/appengine/downloads).
-
-To try the webstore visit /buy.html and enter your credentials.
 
 How it works
 ------------
