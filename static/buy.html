@@ -1,0 +1,60 @@
+<!--buy.html-->
+<!--First step in webstore workflow-->
+
+
+<!--Some companies block Javascript on their employee's computers.-->
+<!--Show this message to the poor sods.-->
+<noscript>This website really needs Javascript.  Please turn it on.  We promise it won't bite.<br /><br /></noscript>
+
+Buy our stuff for $3!!!  To get started, please enter your email below. <br /><br />
+
+<!--This is the form customers fill out to begin their transaction-->
+<form action="/start" method="post">
+    Name: <input type="text" name="name" id="name" /><br />
+    Email: <input type="email" name="email1" id="email1" /><br />
+    Confirm Email: <input type="email" name="email2" id="email2" /><br />
+    <div id="email_problem" style="display:none" class="error">Invalid email</div>
+    <div id="emails_different" style="display:none" class="error">Emails must match</div>
+    <div id="email_exists" style="display:none">
+        <p>An account with this email already exists.  <a href="/static/reset-password.html">Reset your password</a> if you've forgotten it.</p>
+    </div>
+
+    <input type="submit" id="submit"/>
+</form>
+<small>Privacy Policy: Your email is securely stored for password resetting purposes only and not shared with anyone.</small>
+
+<!--Include Jquery Javascript Library.  This makes coding Javascript easier.-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<!--Include some utility functions-->
+<script src="util.js"></script>
+<script>
+    //url is a map containing the url string
+    //e.g. for '/buy.html?hi=there' url = {hi: there}
+    url = getQueryObject();
+
+    if (url.email1) $('#email1').val(url.email1)
+    if (url.email2) $('#email2').val(url.email2)
+    if (url.email_problem) $('#email_problem').show()
+    if (url.emails_different) $('#emails_different').show()
+    if (url.email_exists) $('#email_exists').show()
+
+    //this method is called before the form is submitted.
+    //It prechecks the customer's name and email
+    //and notifies them if there are errors
+    $("#submit").click(function(){
+        $(".error").hide();
+        var hasError = false;
+        var email1 = $('#email1').val()
+        var email2 = $('#email2').val()
+        if (email1 == '') {
+            $('#email_problem').show()
+            hasError = true
+        } else if (email1 != email2) {
+            $('#emails_different').show()
+            hasError = true
+        }
+        return !hasError
+    })
+
+</script>
