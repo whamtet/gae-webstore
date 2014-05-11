@@ -1,3 +1,7 @@
+#app.yaml
+#this contains the meta-data for the app and tells Google App Engine how to run it.
+
+
 application: sample-webstore #replace this with your own application id#
 version: 1
 runtime: python27

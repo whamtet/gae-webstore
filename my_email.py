@@ -12,6 +12,7 @@ def reset_password_email(email, name, link):
 To reset your password, please click the link below.<br /><br />
 <a href="%(link)s" target="_blank">Reset Password</a><br /><br />
 Regards Yours Sincerely""" % {"recipient": name, "link": link}
+
     message.body = """Dear %(recipient)s,
 
 To reset your password, please visit the link below.

@@ -1,7 +1,14 @@
+#check.py
+#contains endpoint to check whether customer has completed transaction
+
 import webapp2
 import my_db
 from webapp2_extras import security
 
+#endpoint for /check
+#/check takes an email and password
+#returns number of times user has logged in
+#or else 'nope' if their credentials are invalid
 class Check(webapp2.RequestHandler):
     def post(self):
         #temp!

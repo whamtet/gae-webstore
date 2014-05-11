@@ -11,6 +11,7 @@ import receive_ipn
 from google.appengine.ext import db
 import check
 
+#endpoint for root url /
 class MainPage(webapp2.RequestHandler):
 
     def get(self):

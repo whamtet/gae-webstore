@@ -19,7 +19,7 @@ IS_DEV = server_software and server_software.count('Development') > 0
 REDIRECT = "/static/reset-password.html"
 
 
-#check with paypal that autoreturn request is genuine.
+#checks with paypal that autoreturn request is genuine.
 #returns 'SUCCESS' if it is.
 def confirm(tx):
     params = {
